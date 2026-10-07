@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SimExp.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SimExp_main_jar</output-path>
+    <root id="archive" name="SimExp.main.jar">
+      <element id="module-output" name="SimExp.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.20.0/f0a5e62fbd21285e9a5498a60dccb097e1ef793b/jackson-databind-2.20.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.20.0/3c97f7fad069f7cfae639d790bd93d6a0b2dff31/jackson-core-2.20.0.jar" path-in-jar="/" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

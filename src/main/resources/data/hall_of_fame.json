@@ -1,0 +1,41 @@
+[ {
+  "season" : 1,
+  "winner" : "Morocco",
+  "winnerRating" : 188,
+  "runnerUp" : "Spain",
+  "runnerUpRating" : 186,
+  "thirdPlace" : "USA",
+  "thirdPlaceRating" : 140
+}, {
+  "season" : 2,
+  "winner" : "Brazil",
+  "winnerRating" : 175,
+  "runnerUp" : "Poland",
+  "runnerUpRating" : 171,
+  "thirdPlace" : "Japan",
+  "thirdPlaceRating" : 166
+}, {
+  "season" : 3,
+  "winner" : "Belgium",
+  "winnerRating" : 205,
+  "runnerUp" : "Italy",
+  "runnerUpRating" : 208,
+  "thirdPlace" : "Canada",
+  "thirdPlaceRating" : 189
+}, {
+  "season" : 4,
+  "winner" : "Czechia",
+  "winnerRating" : 186,
+  "runnerUp" : "Spain",
+  "runnerUpRating" : 178,
+  "thirdPlace" : "Colombia",
+  "thirdPlaceRating" : 179
+}, {
+  "season" : 5,
+  "winner" : "Austria",
+  "winnerRating" : 171,
+  "runnerUp" : "Poland",
+  "runnerUpRating" : 179,
+  "thirdPlace" : "Canada",
+  "thirdPlaceRating" : 184
+} ]

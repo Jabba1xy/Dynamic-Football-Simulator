@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SimExpV2:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SimExpV2_jar</output-path>
+    <root id="archive" name="SimExp.jar">
+      <element id="module-output" name="SimExp" />
+    </root>
+  </artifact>
+</component>
