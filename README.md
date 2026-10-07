@@ -734,7 +734,6 @@ If development continues, I would like to expand the simulator with several new 
 
 **Jamie Scott**
 
-- **GitHub:** [Jamie Scott](https://github.com/YOUR-GITHUB-USERNAME)
-- **LinkedIn:** [Jamie Scott](https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME)
+- **GitHub:** [Jamie Scott](https://github.com/Jabba1xy)
 
 Java | Gradle | JUnit 5
