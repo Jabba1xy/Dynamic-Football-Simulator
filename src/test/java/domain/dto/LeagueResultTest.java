@@ -1,6 +1,5 @@
 package domain.dto;
 
-import domain.dto.LeagueResult;
 import domain.model.Team;
 import org.junit.jupiter.api.Test;
 

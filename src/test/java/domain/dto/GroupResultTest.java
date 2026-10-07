@@ -1,6 +1,5 @@
 package domain.dto;
 
-import domain.dto.GroupResult;
 import domain.model.Team;
 import org.junit.jupiter.api.Test;
 

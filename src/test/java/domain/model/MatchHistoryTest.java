@@ -2,7 +2,6 @@ package domain.model;
 
 import config.GameConstants;
 import domain.enums.MatchOutcome;
-import domain.model.MatchHistory;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
