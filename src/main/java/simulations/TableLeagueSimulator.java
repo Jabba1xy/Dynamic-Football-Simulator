@@ -122,10 +122,7 @@ public class TableLeagueSimulator {
         TableLeagueSaveData saveData = menu.show(false, null);
         boolean skipQualifiers = saveData != null;
 
-        printer.printMessage("Enable cinematic mode? (yes/no)");
-
-        String answer = input.userInput().trim();
-        settings.setCinematicMode(answer.equalsIgnoreCase("yes"));
+        askUserCinematicMode();
 
         if (skipQualifiers) {
             champion = saveMapper.restoreLeague(saveData.champion(), SimulationType.LEAGUE_CAREER);
@@ -164,7 +161,7 @@ public class TableLeagueSimulator {
         leagueSystem.addAll(List.of(platinum, diamond, champion));
 
         printer.newLine();
-        printer.printMessage("THE NEW LEAGUE TIERS");
+        printer.printMessage("THE LEAGUE TIERS");
         printer.newLine();
 
         printer.printLeagueSystem(leagueSystem);
@@ -190,7 +187,8 @@ public class TableLeagueSimulator {
 
             printer.printMessage("Time for the Grand Championship playoffs!!!");
             printer.askedToPressEnter();
-            input.pressEnter();
+
+            if (!input.pressEnter()) { return; }
 
             result = grandChampKnockouts.runKnockout(championResult.promoted(), settings, SimulationType.LEAGUE_CAREER);
 
@@ -220,9 +218,21 @@ public class TableLeagueSimulator {
                     hallOfFame.getHistory()
             );
 
-            menu.show(true, saveData);
+            TableLeagueSaveData pendingSave = menu.show(true, saveData);
 
+            if (pendingSave != null) {
+                champion = saveMapper.restoreLeague(pendingSave.champion(), SimulationType.LEAGUE_CAREER);
+                diamond = saveMapper.restoreLeague(pendingSave.diamond(), SimulationType.LEAGUE_CAREER);
+                platinum = saveMapper.restoreLeague(pendingSave.platinum(), SimulationType.LEAGUE_CAREER);
+
+                hallOfFame.restore(pendingSave.history());
+
+                leagueSystem.clear();
+                leagueSystem.addAll(List.of(platinum, diamond, champion));
+            }
             printer.printLeagueSystem(leagueSystem);
+
+            askUserCinematicMode();
         }
     }
 
@@ -302,5 +312,16 @@ public class TableLeagueSimulator {
                 championTeam,
                 SimulationType.LEAGUE_CAREER
         );
+    }
+    private void askUserCinematicMode () {
+
+        printer.printMessage("Enable cinematic mode? (yes/no)");
+
+        String answer = input.userInput();
+
+        if (answer == null) { return; }
+
+        settings.setCinematicMode(
+                answer.trim().equalsIgnoreCase("yes"));
     }
 }

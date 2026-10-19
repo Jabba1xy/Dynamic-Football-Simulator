@@ -59,6 +59,8 @@ public class SaveGame<T> {
      */
     public void save(String saveName, T saveData) {
 
+        validateSaveName(saveName);
+
         File file = new File(
                 saveDirectory + saveName + ".json"
         );
@@ -78,6 +80,8 @@ public class SaveGame<T> {
      * @return the loaded save data, or {@code null} if the save does not exist
      */
     public T load(String saveName) {
+
+        validateSaveName(saveName);
 
         File file = new File(
                 saveDirectory + saveName + ".json"
@@ -103,6 +107,8 @@ public class SaveGame<T> {
      */
     public boolean saveExists(String saveName) {
 
+        validateSaveName(saveName);
+
         File file = new File(
                 saveDirectory + saveName + ".json"
         );
@@ -116,6 +122,8 @@ public class SaveGame<T> {
      */
     public void deleteSave(String saveName) {
 
+        validateSaveName(saveName);
+
         File file = new File(
                 saveDirectory + saveName + ".json"
         );
@@ -125,10 +133,11 @@ public class SaveGame<T> {
     }
 
     /**
-     * Returns the save files currently stored in the simulation's 'save' directory.
+     * Returns the save files currently stored in the simulations save directory.
      *
      * @return an array containing the available save files, or an empty array
-     * if the save directory does not exist
+     *         if the directory does not exist
+     * @throws IllegalStateException if the directory cannot be listed
      */
     public File[] getSaveFiles() {
 
@@ -137,7 +146,15 @@ public class SaveGame<T> {
         if (!directory.exists()) {
             return new File[0];
         }
-        return directory.listFiles();
+
+        File[] saves = directory.listFiles();
+
+        if (saves == null) {
+            throw new IllegalStateException(
+                    "Unable to list save files in: " + saveDirectory
+            );
+        }
+        return saves;
     }
 
     /**
@@ -156,5 +173,12 @@ public class SaveGame<T> {
         return saves[selection - 1]
                 .getName()
                 .replace(".json", "");
+    }
+    private void validateSaveName(String saveName) {
+        if (saveName == null || !saveName.matches("[a-zA-Z0-9 _-]+")) {
+            throw new IllegalArgumentException(
+                    "Invalid save name. Use only letters, numbers, spaces, underscores, and hyphens."
+            );
+        }
     }
 }

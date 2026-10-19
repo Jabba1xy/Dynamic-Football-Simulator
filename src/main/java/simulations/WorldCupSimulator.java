@@ -105,6 +105,7 @@ public class WorldCupSimulator {
      * cinematic mode, and saving the current World Cup state.</p>
      */
     public void start() {
+
         printer.printMessage("!!!WORLD CUP SIMULATOR!!!");
 
         League qualifiers = new League(
@@ -113,24 +114,35 @@ public class WorldCupSimulator {
                 SimulationType.WORLD_CUP);
 
         WorldCupSaveData saveData = menu.show(false, null);
-        boolean saveLoaded = saveData != null;
-
-        printer.printMessage("Enable cinematic mode? (yes/no)");
-
-        String answer = input.userInput().trim();
-        settings.setCinematicMode(answer.equalsIgnoreCase("yes"));
-
-        if (saveLoaded) {
-            qualifiers.getTeams().clear();
-            qualifiers = saveMapper.restoreWorldCup(saveData);
-
-            hallOfFame.restore(saveData.history());
-        }
 
         while (true) {
 
+            boolean saveLoaded = saveData != null;
+
+            printer.printMessage("Enable cinematic mode? (yes/no)");
+
+            String answer = input.userInput();
+
+            if (answer == null) { return; }
+
+            settings.setCinematicMode(
+                    answer.trim().equalsIgnoreCase("yes"));
+
+            if (saveLoaded) {
+                qualifiers.getTeams().clear();
+                qualifiers = saveMapper.restoreWorldCup(saveData);
+
+                hallOfFame.restore(saveData.history());
+            }
+
             leagueSystem.clear();
             leagueSystem.add(qualifiers);
+
+            printer.newLine();
+            printer.printMessage("TEAM LIST");
+            printer.newLine();
+
+            printer.printLeagueSystem(leagueSystem);
 
             season.playSeason(leagueSystem, GameConstants.WORLD_CUP_QUALIFIER_SIZE, settings, SimulationType.WORLD_CUP, true);
 
@@ -169,14 +181,14 @@ public class WorldCupSimulator {
 
             printer.printGrandChampion(result.champion());
 
-            leagueManager.updateLeague(qualifiers, teamList, result.champion(), SimulationType.WORLD_CUP);
+            leagueManager.updateLeague(qualifiers, new ArrayList<>(), result.champion(), SimulationType.WORLD_CUP);
 
-            saveData = saveMapper.createWorldCupSaveData(
-                    teamList,
+            WorldCupSaveData pendingSave = saveMapper.createWorldCupSaveData(
+                    qualifiers.getTeams(),
                     hallOfFame.getHistory()
             );
 
-            menu.show(true, saveData);
+            saveData = menu.show(true, pendingSave);
         }
     }
 

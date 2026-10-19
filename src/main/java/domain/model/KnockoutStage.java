@@ -103,7 +103,8 @@ public class KnockoutStage {
 
             printer.printFixtures(teams);
             printer.askedToPressEnter();
-            input.pressEnter();
+
+            if (!input.pressEnter()) { return null; }
 
             for (int i = 0; i < teams.size(); i += 2) {
 
@@ -189,7 +190,8 @@ public class KnockoutStage {
         printer.printMessage("======================\n");
 
         printer.askedToPressEnter();
-        input.pressEnter();
+
+        if (!input.pressEnter()) { return null; }
 
         printer.pause(settings, GameConstants.TWO_SECOND_DELAY);
 

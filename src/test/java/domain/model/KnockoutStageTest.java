@@ -123,8 +123,9 @@ class KnockoutStageTest {
      */
     private static class TestInput extends Input {
         @Override
-        public void pressEnter() {
+        public boolean pressEnter() {
             // Do nothing during tests.
+            return true;
         }
     }
 }

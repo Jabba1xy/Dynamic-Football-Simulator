@@ -22,17 +22,28 @@ public class Input {
 
     /**
      * Waits until the user presses ENTER.
+     *
+     * @return {@code true} if a line was consumed, or {@code false}
+     *         if no more input is available
      */
-    public void pressEnter() {
-        scanner.nextLine();
+    public boolean pressEnter() {
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+            return true;
+        }
+        return false;
     }
 
     /**
      * Reads a line of text entered by the user.
      *
-     * @return the user-provided console input
+     * @return the user-provided console input, or {@code null}
+     *         if no more input is available
      */
     public String userInput() {
-        return scanner.nextLine();
+        if (scanner.hasNextLine()) {
+            return scanner.nextLine();
+        }
+        return null;
     }
 }

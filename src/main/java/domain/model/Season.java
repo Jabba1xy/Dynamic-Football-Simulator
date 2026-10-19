@@ -68,7 +68,8 @@ public class Season {
         for (League league : leagues) {
 
             printer.askedToPressEnter();
-            input.pressEnter();
+
+            if (!input.pressEnter()) { return; }
 
             playLeague(league, seasonSize, settings, type, calculateTotal);
         }
@@ -98,7 +99,8 @@ public class Season {
         for (int round = 0; round < seasonSize; round++) {
 
             printer.askedToPressEnter();
-            input.pressEnter();
+
+            if (!input.pressEnter()) { return; }
 
             printer.printMatchWeek(round + 1);
             printer.pause(settings, 1000);

@@ -52,8 +52,14 @@ public class FootballSimulator {
 
             printer.printSimulatorMenu();
 
+            String userChoice = input.userInput();
+
+            if (userChoice == null) {
+                return;
+            }
+
             SimulationType type = getSimulationType(
-                    input.userInput().trim()
+                    userChoice.trim()
             );
 
             switch(type) {
