@@ -2,7 +2,7 @@
 
 All notable changes to the Dynamic Football Simulator are documented in this file.
 
-## [Unreleased]
+## [v1.1]
 
 ### Fixed
 
