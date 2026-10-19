@@ -36,8 +36,8 @@ promotion and relegation, persistent save data, and automated unit testing.
 ## How It Works
 
 The simulator follows a structured football simulation cycle depending on simulation type.
-In league modeTeams are created or loaded, organised into either leagues or tournament groups,
-and then progress through matches and seasons using a complex stochastic match model and team rating system.
+In league mode, teams are created or loaded, organised into leagues or tournament groups,
+and progress through matches and seasons using the stochastic match model and team rating system.
 Match results update team statistics and ratings,
 while league and tournament results determine promotion, relegation,
 qualification, and progression through knockout stages.
@@ -58,7 +58,7 @@ When the simulator starts, the user selects one of two simulation modes:
 3. **Choose Simulation Settings:**
    The user can choose whether to simulate entire seasons at once or progress through matches one game at a time.
 
-4. **Create or Load Teams**
+4. **Create or Load Teams:**
    Teams are either created from the default data or loaded from an existing save. If required, teams first compete in a qualification league before entering the main competition.
 
 5. **Competition Setup:**
