@@ -643,6 +643,8 @@ The save and load system allows the user to manage previously saved simulations 
 ### Running the Simulator
 
 Download the latest `DynamicFootballSimulator-1.0.jar` from the GitHub repository.
+Or download the latest version using the link:
+[**Download Dynamic Football Simulator v1.0**](https://github.com/Jabba1xy/Dynamic-Football-Simulator/releases/latest)
 
 Open a terminal in the folder containing the JAR and run:
 
@@ -732,7 +734,6 @@ If development continues, I would like to expand the simulator with several new 
 
 **Jamie Scott**
 
-- **GitHub:** [Jamie Scott](https://github.com/YOUR-GITHUB-USERNAME)
-- **LinkedIn:** [Jamie Scott](https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME)
+- **GitHub:** [Jamie Scott](https://github.com/Jabba1xy)
 
 Java | Gradle | JUnit 5
